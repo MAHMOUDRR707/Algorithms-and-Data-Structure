@@ -1,5 +1,4 @@
 # Algorithms-and-Data-Structure
 
-Algorithms and data structure problem 
+Algorithms and data structure problems
 
-sadly  my lasy 33 days was deleted 
