@@ -1,0 +1,35 @@
+class Solution:
+    def totalNQueens(self, n: int) -> int:
+        neg =  set()
+        pos = set()
+        col =  set()
+        
+        res =  []
+        z = [["."]*n for i in range(n)]
+        
+        def backtrack(r):
+            
+            if r == n :
+                x =  ["".join(j) for j in z]
+                res.append(x)
+                return 
+            for i in range(n):
+                
+                if i in col or (i+r) in pos or (r-i) in neg :
+                    continue
+                
+                col.add(i)
+                neg.add(r-i)
+                pos.add(i+r)
+                
+                z[r][i] = 'Q'
+                
+                backtrack(r+1)
+                
+                col.remove(i)
+                neg.remove(r-i)
+                pos.remove(i+r)
+                
+                z[r][i] = '.'
+        backtrack(0)
+        return len(res)
